@@ -2,19 +2,22 @@
 % Please edit documentation in R/publish_fig.R
 \name{publish_fig}
 \alias{publish_fig}
-\title{Save a Publication-Ready Figure for Nature Publishing Group Layout}
+\title{Save a Publication-Ready Figure with Journal-Specific Dimensions}
 \usage{
 publish_fig(
   plot,
   filename,
   fig_width,
   fig_height,
+  journal = "nature",
   page = FALSE,
+  landscape = FALSE,
   dpi = 300,
-  page_width = 183,
-  page_height = 170,
-  ncol = 2,
-  col_margin = 5
+  page_width = NULL,
+  page_height = NULL,
+  ncol = NULL,
+  col_margin = NULL,
+  row_margin = 5
 )
 }
 \arguments{
@@ -24,36 +27,47 @@ publish_fig(
 
 \item{fig_width}{Integer. Number of columns spanned.}
 
-\item{fig_height}{Numeric. Number of columns tall (default), or
-fraction of page height if \code{page = TRUE}.}
+\item{fig_height}{Numeric. Number of columns tall (default), or fraction of
+page height if \code{page = TRUE} or \code{landscape = TRUE}.}
 
-\item{page}{Logical. If \code{TRUE}, interpret \code{fig_height}
-as fraction of page height. Default \code{FALSE}.}
+\item{journal}{Character. Name of the journal to use for default sizing.
+Defaults to \code{"nature"}.}
 
-\item{dpi}{Numeric; dots per inch resolution. Default \code{300}.}
+\item{page}{Logical. If \code{TRUE}, interpret \code{fig_height} as fraction
+of page height. Default \code{FALSE}. Forced to \code{TRUE} when
+\code{landscape = TRUE}.}
 
-\item{page_width}{Numeric; page text block width in mm. Default \code{183}.}
+\item{landscape}{Logical. If \code{TRUE}, swap page width and height and
+treat the figure as a full-page landscape spread.}
 
-\item{page_height}{Numeric; max figure height in mm. Default \code{170}.}
+\item{dpi}{Numeric. Dots per inch resolution. Default \code{300}.}
 
-\item{ncol}{Integer; number of columns. Default \code{2}.}
+\item{page_width}{Numeric. Portrait page text block width in mm. Overrides
+journal default if provided.}
 
-\item{col_margin}{Numeric; spacing between columns in mm. Default \code{5}.}
+\item{page_height}{Numeric. Portrait maximum figure height in mm. Overrides
+journal default if provided.}
+
+\item{ncol}{Integer. Number of columns. Overrides journal default if provided.}
+
+\item{col_margin}{Numeric. Spacing between columns in mm. Overrides journal
+default if provided.}
+
+\item{row_margin}{Numeric. Spacing between rows (vertical gutters) in mm.
+Default \code{5}.}
 }
 \value{
 Invisibly returns \code{NULL}.
 }
 \description{
-Saves a \code{ggplot} object with dimensions in column units by default.
-Width and height are integers giving the number of columns spanned.
-Optionally, height can instead be a fraction of page height if
-\code{page = TRUE}.
+Saves a \code{ggplot} object to file using dimensions tailored to a specific journal's layout.
+Width is given in columns spanned. Height is given in column units unless
+\code{page = TRUE}. Landscape figures are treated as full-page figures and
+automatically use page-based sizing.
 }
 \details{
-Defaults follow Nature Publishing Group:
-\itemize{
-\item Single column = 89 mm
-\item Double column = 183 mm
-\item Maximum height = 170 mm
-}
+Default dimensions are loaded from \code{journal_defaults} based on the
+specified journal. Users can override individual dimensions by providing
+values for \code{page_width}, \code{page_height}, \code{ncol}, or
+\code{col_margin}.
 }

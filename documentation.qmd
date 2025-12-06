@@ -1,0 +1,12 @@
+---
+title: "documentation"
+format: html
+---
+
+## Nature Publishing Group
+
+[Source](https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/#figure-sizing)
+
+## Elsevier
+
+[Source](https://www.elsevier.com/about/policies-and-standards/author/artwork-and-media-instructions/artwork-sizing)

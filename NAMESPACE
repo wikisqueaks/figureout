@@ -3,4 +3,3 @@
 export(new_fig_script)
 export(publish_fig)
 export(publish_fig_legacy)
-export(theme_edge)
