@@ -1,0 +1,14 @@
+Package: figR
+Title: figR: the figure publishing package
+Version: 0.0.0.9000
+Authors@R: 
+    person("K W", "Taylor", , "kwtaylor@ualberta.ca", role = c("aut", "cre"))
+Description: Assists in setting figures at common dimensions for scientific manuscripts.
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    ggplot2,
+    ggsci,
+    purrr
+License: MIT + file LICENSE
