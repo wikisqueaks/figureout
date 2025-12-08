@@ -1,5 +1,21 @@
 url: https://wikisqueaks.github.io/figR/
+
 template:
+  bootstrap: 5
   params:
-    bootswatch: darkly
+    bootswatch: zephyr  # <--- Change 'darkly' to 'zephyr' (or 'yeti')
     logo: logo.png
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  title: "figR"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Reference"
+      href: reference/index.html
+    - text: "Articles"
+      href: articles/index.html
+      

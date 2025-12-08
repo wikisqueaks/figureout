@@ -3,6 +3,8 @@ Title: Figure Publishing Helper for Scientific Manuscripts
 Version: 0.0.0.9000
 Authors@R: person("K W", "Taylor", email = "kwtaylor@ualberta.ca", role = c("aut", "cre"))
 Description: Assists in setting figures to standard dimensions for scientific manuscripts.
+URL: https://wikisqueaks.github.io/figR
+BugReports: https://github.com/wikisqueaks/figR/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
