@@ -1,16 +1,22 @@
 Package: figR
-Title: Figure Publishing Helper for Scientific Manuscripts
+Title: Figure Publishing for Scientific Manuscripts
 Version: 0.0.0.9000
-Authors@R: person("K W", "Taylor", email = "kwtaylor@ualberta.ca", role = c("aut", "cre"))
+Authors@R: 
+    person(
+      given  = "Kyle", 
+      family = "Taylor", 
+      email = "kwtaylor@ualberta.ca", 
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0009-0007-3849-1078"))
 Description: Assists in setting figures to standard dimensions for scientific manuscripts.
 URL: https://wikisqueaks.github.io/figR
 BugReports: https://github.com/wikisqueaks/figR/issues
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports:
     ggplot2,
     purrr
-License: MIT + file LICENSE
 Depends: 
     R (>= 3.5)

@@ -2,20 +2,66 @@ url: https://wikisqueaks.github.io/figR/
 
 template:
   bootstrap: 5
+  # "zephyr" is the closest built-in theme to the "tidytemplate" look
   params:
-    bootswatch: zephyr  # <--- Change 'darkly' to 'zephyr' (or 'yeti')
-    logo: logo.png
+    bootswatch: zephyr
+    logo: logo-hex.png
 
+# 1. Navbar: Matches dplyr's "Get Started" on the left
 navbar:
+  title: "figR"
   structure:
     left:  [intro, reference, articles, news]
     right: [search, github]
-  title: "figR"
-  left:
-    - text: "Home"
-      href: index.html
-    - text: "Reference"
-      href: reference/index.html
-    - text: "Articles"
-      href: articles/index.html
-      
+  components:
+    intro:
+      text: "Get started"
+      href: articles/figR.html  # Assumes you have vignettes/figR.Rmd
+    articles:
+      text: "Articles"
+      menu:
+        - text: "Developer Guide"
+          href: articles/developer.html
+    news:
+      text: "News"
+      menu:
+        - text: "Changelog"
+          href: news/index.html
+
+# 2. Reference: This is where the magic happens. 
+# We group your functions exactly like dplyr groups theirs.
+reference:
+  - title: "Saving Figures"
+    desc: Core functions for exporting publication-ready plots.
+    contents:
+      - publish_fig
+      # You can add others here if you want specific highlighting
+
+  - title: "Configuration"
+    desc: Functions to manage session defaults.
+    contents:
+      - set_journal
+      - search_journals
+
+  # --- THIS IS THE FIX ---
+  # This automatically captures 'new_fig_script', 'show_journals', 
+  # and ANY future function you create, stopping the build error.
+  - title: "Other Functionality" 
+    contents: 
+      - matches(".*")
+
+  # - title: "Developer Tools"
+  #   desc: >
+  #     Tools for reverse-engineering layouts from PDF articles.
+  #   contents:
+
+# 3. Sidebar Links (Optional, appearing on Homepage)
+home:
+  links:
+    - text: Report a bug
+      href: https://github.com/wikisqueaks/figR/issues
+
+development:
+  mode: auto
+
+
