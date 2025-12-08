@@ -1,11 +1,10 @@
 url: https://wikisqueaks.github.io/figR/
 
 template:
+  package: tidytemplate   # <--- The engine switch
   bootstrap: 5
-  # "zephyr" is the closest built-in theme to the "tidytemplate" look
   params:
-    bootswatch: zephyr
-    logo: logo-hex.png
+    logo: logo.png
 
 # 1. Navbar: Matches dplyr's "Get Started" on the left
 navbar:

@@ -2,7 +2,7 @@
 
 ## Overview
 
-**figR** eliminates the guesswork of scientific figure sizing. It provides a consistent toolset to ensure your `ggplot2` graphics meet journal requirements without manual resizing:
+**figR** eliminates the guesswork of figure layout sizing in scientific journals. It provides a consistent toolset to ensure your `ggplot2` graphics meet journal requirements.
 
 - `publish_fig()` saves plots with precise dimensions based on column widths.
 - `search_journals()` helps you find specific layout rules (Nature, Cell, Science).
@@ -17,3 +17,4 @@ You can install the development version of figR from [GitHub](https://github.com
 ```r
 # install.packages("devtools")
 devtools::install_github("wikisqueaks/figR")
+```
