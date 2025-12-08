@@ -9,21 +9,23 @@ publish_fig(
   filename,
   fig_width,
   fig_height,
-  journal = "nature",
+  journal = getOption("figR_journal", "nature"),
   page = FALSE,
   landscape = FALSE,
   dpi = 300,
+  units = "mm",
   page_width = NULL,
   page_height = NULL,
   ncol = NULL,
   col_margin = NULL,
-  row_margin = 5
+  row_margin = 5,
+  ...
 )
 }
 \arguments{
 \item{plot}{A \code{ggplot} object to save.}
 
-\item{filename}{Character vector of one or more output filenames.}
+\item{filename}{Character vector of one or more output filenames with extensions.}
 
 \item{fig_width}{Integer. Number of columns spanned.}
 
@@ -31,7 +33,7 @@ publish_fig(
 page height if \code{page = TRUE} or \code{landscape = TRUE}.}
 
 \item{journal}{Character. Name of the journal to use for default sizing.
-Defaults to \code{"nature"}.}
+Defaults to \code{"nature"} or the value of \code{getOption("figR_journal")}.}
 
 \item{page}{Logical. If \code{TRUE}, interpret \code{fig_height} as fraction
 of page height. Default \code{FALSE}. Forced to \code{TRUE} when
@@ -41,6 +43,8 @@ of page height. Default \code{FALSE}. Forced to \code{TRUE} when
 treat the figure as a full-page landscape spread.}
 
 \item{dpi}{Numeric. Dots per inch resolution. Default \code{300}.}
+
+\item{units}{Character. Units for ggsave. Default "mm".}
 
 \item{page_width}{Numeric. Portrait page text block width in mm. Overrides
 journal default if provided.}
@@ -55,6 +59,8 @@ default if provided.}
 
 \item{row_margin}{Numeric. Spacing between rows (vertical gutters) in mm.
 Default \code{5}.}
+
+\item{...}{Additional arguments passed to \code{ggsave()} (e.g., \code{device}, \code{limitsize}, \code{bg}).}
 }
 \value{
 Invisibly returns \code{NULL}.
@@ -63,11 +69,6 @@ Invisibly returns \code{NULL}.
 Saves a \code{ggplot} object to file using dimensions tailored to a specific journal's layout.
 Width is given in columns spanned. Height is given in column units unless
 \code{page = TRUE}. Landscape figures are treated as full-page figures and
-automatically use page-based sizing.
-}
-\details{
-Default dimensions are loaded from \code{journal_defaults} based on the
-specified journal. Users can override individual dimensions by providing
-values for \code{page_width}, \code{page_height}, \code{ncol}, or
-\code{col_margin}.
+automatically use page-based sizing. Additional \code{ggsave()} parameters
+can be passed via \code{...}.
 }

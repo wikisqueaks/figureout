@@ -2,4 +2,6 @@
 
 export(new_fig_script)
 export(publish_fig)
-export(publish_fig_legacy)
+export(search_journals)
+export(set_journal)
+export(show_journals)

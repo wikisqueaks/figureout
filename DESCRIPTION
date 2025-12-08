@@ -10,3 +10,5 @@ Imports:
     ggplot2,
     purrr
 License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5)
