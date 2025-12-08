@@ -19,10 +19,20 @@ add_journal <- function(df = NULL, publisher, journal, page_width, page_height, 
 # 2. Build Data
 # 2. Build Data (Positional arguments: Publisher, Journal, Width, Height, Ncol, ColMargin)
 jd <- NULL
-jd <- add_journal(jd, "Nature",   "Nature", 183, 170, 2, 5)
-jd <- add_journal(jd, "Nature",   "Nature Communications", 120, 170, 1, 5)
-jd <- add_journal(jd, "Plos",     "Plos One", 190, 210, 2, 10)
-jd <- add_journal(jd, "Elsevier", "Rhizosphere", 180, 240, 2, 10)
+jd <- add_journal(jd, "Frontiers", "Frontiers", 175, 240, 2, 5)
+jd <- add_journal(jd, "Frontiers", "Frontiers in Ecology and Evolution", 175, 240, 2, 5)
+jd <- add_journal(jd, "Nature",    "Nature", 183, 170, 2, 5)
+jd <- add_journal(jd, "PLOS",      "PLOS One", 190, 210, 2, 10)
+jd <- add_journal(jd, "Elsevier",  "Cell", 174, 230, 2, 5)
+jd <- add_journal(jd, "Elsevier",  "Rhizosphere", 180, 240, 2, 10)
+jd <- add_journal(jd, "Wiley",     "Global Change Biology", 178, 240, 2, 6)
+jd <- add_journal(jd, "Wiley/ESA", "Ecological Applications", 178, 242, 2, 6)
+jd <- add_journal(jd, "Wiley/ESA", "Ecological Monographs", 178, 242, 2, 6)
+jd <- add_journal(jd, "Wiley/ESA", "Ecology", 178, 242, 2, 6)
+jd <- add_journal(jd, "Wiley/ESA", "Ecosphere", 178, 242, 2, 6)
+jd <- add_journal(jd, "Wiley/ESA", "Frontiers in Ecology and the Environment", 178, 242, 2, 6)
+jd <- add_journal(jd, "Wiley/NSO", "Oikos", 178, 231, 2, 4.66)
+
 
 # 3. Sort, Clean, and Save
 # Sort by Publisher first, then Journal name

@@ -2,20 +2,29 @@
 % Please edit documentation in R/search_journals.R
 \name{search_journals}
 \alias{search_journals}
-\title{Search for Available Journals}
+\title{Search or List Available Journals}
 \usage{
-search_journals(pattern)
+search_journals(pattern = NULL)
 }
 \arguments{
-\item{pattern}{Character. A text string to search for (e.g., "nature", "cell"). Case-insensitive.}
+\item{pattern}{Character (Optional). A text string to search for (e.g., "nature").
+Case-insensitive. If \code{NULL} (the default), returns all journals.}
 }
 \value{
-A data frame of matching journals and their publishers.
+A data frame of journal definitions.
 }
 \description{
-Search the internal database for journals matching a text pattern.
+Search the internal database for journals matching a text pattern in either
+the journal name or the publisher name.
+If no pattern is provided, returns the entire table of journals.
 }
 \examples{
-search_journals("nature")
+# Show all available journals
+search_journals()
+
+# Search by Journal Name
 search_journals("comms")
+
+# Search by Publisher
+search_journals("Elsevier")
 }
