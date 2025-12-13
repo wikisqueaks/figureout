@@ -4,7 +4,7 @@ template:
   package: tidytemplate   # <--- The engine switch
   bootstrap: 5
   params:
-    logo: logo.png
+    logo: logo-hex.png
 
 # 1. Navbar: Matches dplyr's "Get Started" on the left
 navbar:
