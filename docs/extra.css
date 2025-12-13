@@ -1,0 +1,25 @@
+/* pkgdown/extra.css */
+
+/* 1. Target the H1 inside the page header */
+.page-header h1 {
+  display: flex !important;        /* Enable Flexbox */
+  align-items: center !important;  /* Vertically center EVERYTHING */
+  justify-content: flex-start;     /* Align content to the left */
+  width: 100%;
+}
+
+/* 2. Target the Link (<a>) that wraps the logo */
+.page-header h1 a {
+  order: -1 !important;            /* Move the link (and logo) to the START (Left) */
+  margin-right: 20px !important;   /* Add space between logo and text */
+  margin-left: 0 !important;
+  display: flex;                   /* Ensures the anchor wraps the image tightly */
+  align-items: center;             /* Centers image inside the anchor */
+}
+
+/* 3. Target the Image (<img>) inside that link */
+.page-header h1 img {
+  float: none !important;          /* CRITICAL: Disable the Markdown 'align=right' */
+  margin: 0 !important;            /* Reset margins */
+  vertical-align: middle;          /* Fix baseline alignment issues */
+}
