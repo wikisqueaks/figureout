@@ -1,4 +1,4 @@
-# figR <a href="https://wikisqueaks.github.io/figR/"><img src="man/figures/logo-hex.png" align="right" height="138" /></a>
+# figR <a href="https://wikisqueaks.github.io/figR/"><img src="pkgdown/assets/logo-hex.png" align="right" height="138" /></a>
 
 ## Overview
 
