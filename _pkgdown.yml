@@ -55,11 +55,6 @@ reference:
   #   contents:
 
 # 3. Sidebar Links (Optional, appearing on Homepage)
-home:
-  links:
-    - text: Report a bug
-      href: https://github.com/wikisqueaks/figR/issues
-
 development:
   mode: auto
 
