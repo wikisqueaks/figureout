@@ -4,7 +4,7 @@
 \alias{new_fig_script}
 \title{Create a new figure script with a unique ID}
 \usage{
-new_fig_script(dir, description, hash_length = 4)
+new_fig_script(dir, description, hash_length = 2)
 }
 \arguments{
 \item{dir}{Character. Directory in which to create the script file.}

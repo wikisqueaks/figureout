@@ -7,8 +7,14 @@
 #' with \code{fig_width} and \code{fig_height} as fractions. Additional \code{ggsave()}
 #' parameters can be passed via \code{...}.
 #'
+#' When output paths have been registered with \code{\link{set_paths}}, passing a bare
+#' filename (such as \code{figR.name}) is sufficient — the figure is saved to every
+#' registered directory automatically.
+#'
 #' @param plot A \code{ggplot} object to save.
-#' @param filename Character vector of one or more output filenames with extensions.
+#' @param filename Character. A bare filename (e.g. \code{figR.name}) or a vector of full
+#'   paths. When paths are registered via \code{\link{set_paths}}, the basename of each
+#'   entry is expanded across all registered directories.
 #' @param fig_width Integer. Number of columns spanned (portrait/page modes), or fraction
 #'   of A4 landscape width (landscape mode).
 #' @param fig_height Numeric. Number of column-width units tall (default), fraction of
@@ -21,8 +27,9 @@
 #' @param landscape Logical. If \code{TRUE}, ignore journal page dimensions and use
 #'   standard A4 landscape (297 x 210 mm), with \code{fig_width} and \code{fig_height}
 #'   as fractions. Default \code{FALSE}.
-#' @param peek Logical. If \code{TRUE}, preview the saved figure(s) in the RStudio
-#'   Viewer after saving. Default \code{FALSE}.
+#' @param draft Logical. If \code{TRUE}, save to a temporary file and preview
+#'   immediately without writing to any registered output paths. Useful for
+#'   iterating on a figure before committing it. Default \code{FALSE}.
 #' @param dpi Numeric. Dots per inch resolution. Default \code{300}.
 #' @param units Character. Units for ggsave. Default \code{"mm"}.
 #' @param page_width Numeric. Portrait page text block width in mm. Overrides
@@ -46,7 +53,7 @@ publish_fig <- function(plot,
                         journal = getOption("figR_journal", "nature"),
                         page = FALSE,
                         landscape = FALSE,
-                        peek = FALSE,
+                        draft = FALSE,
                         dpi = 300,
                         units = "mm",
                         page_width = NULL,
@@ -87,7 +94,29 @@ publish_fig <- function(plot,
     h <- fig_height * col_width + (fig_height - 1) * row_margin
   }
 
-  # 4. Save (Loop over filenames)
+  # 4. Draft mode: save to temp file and preview; skip registered paths
+  if (draft) {
+    tmp <- file.path(tempdir(), basename(filename[[1]]))
+    ggplot2::ggsave(
+      filename = tmp,
+      plot     = plot,
+      width    = w,
+      height   = h,
+      units    = units,
+      dpi      = dpi,
+      ...
+    )
+    if (rstudioapi::isAvailable()) rstudioapi::viewer(tmp)
+    return(invisible(tmp))
+  }
+
+  # 5. Resolve filenames against registered paths (if any)
+  fig_paths <- getOption("figR_paths")
+  if (!is.null(fig_paths)) {
+    filename <- as.vector(outer(fig_paths, basename(filename), file.path))
+  }
+
+  # 6. Save (loop over filenames)
   for (f in filename) {
     ggplot2::ggsave(
       filename = f,
@@ -99,9 +128,6 @@ publish_fig <- function(plot,
       ...
     )
   }
-
-  # 5. Optionally preview
-  if (peek) peek(filename)
 
   invisible(filename)
 }

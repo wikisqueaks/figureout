@@ -12,6 +12,7 @@ publish_fig(
   journal = getOption("figR_journal", "nature"),
   page = FALSE,
   landscape = FALSE,
+  draft = FALSE,
   dpi = 300,
   units = "mm",
   page_width = NULL,
@@ -25,26 +26,34 @@ publish_fig(
 \arguments{
 \item{plot}{A \code{ggplot} object to save.}
 
-\item{filename}{Character vector of one or more output filenames with extensions.}
+\item{filename}{Character. A bare filename (e.g. \code{figR.name}) or a vector of full
+paths. When paths are registered via \code{\link{set_paths}}, the basename of each
+entry is expanded across all registered directories.}
 
-\item{fig_width}{Integer. Number of columns spanned.}
+\item{fig_width}{Integer. Number of columns spanned (portrait/page modes), or fraction
+of A4 landscape width (landscape mode).}
 
-\item{fig_height}{Numeric. Number of columns tall (default), or fraction of
-page height if \code{page = TRUE} or \code{landscape = TRUE}.}
+\item{fig_height}{Numeric. Number of column-width units tall (default), fraction of
+page height if \code{page = TRUE}, or fraction of A4 landscape height if
+\code{landscape = TRUE}.}
 
 \item{journal}{Character. Name of the journal to use for default sizing.
 Defaults to \code{"nature"} or the value of \code{getOption("figR_journal")}.}
 
-\item{page}{Logical. If \code{TRUE}, interpret \code{fig_height} as fraction
-of page height. Default \code{FALSE}. Forced to \code{TRUE} when
-\code{landscape = TRUE}.}
+\item{page}{Logical. If \code{TRUE}, interpret \code{fig_height} as a fraction
+of page height. Default \code{FALSE}.}
 
-\item{landscape}{Logical. If \code{TRUE}, swap page width and height and
-treat the figure as a full-page landscape spread.}
+\item{landscape}{Logical. If \code{TRUE}, ignore journal page dimensions and use
+standard A4 landscape (297 x 210 mm), with \code{fig_width} and \code{fig_height}
+as fractions. Default \code{FALSE}.}
+
+\item{draft}{Logical. If \code{TRUE}, save to a temporary file and preview
+immediately without writing to any registered output paths. Useful for
+iterating on a figure before committing it. Default \code{FALSE}.}
 
 \item{dpi}{Numeric. Dots per inch resolution. Default \code{300}.}
 
-\item{units}{Character. Units for ggsave. Default "mm".}
+\item{units}{Character. Units for ggsave. Default \code{"mm"}.}
 
 \item{page_width}{Numeric. Portrait page text block width in mm. Overrides
 journal default if provided.}
@@ -60,15 +69,20 @@ default if provided.}
 \item{row_margin}{Numeric. Spacing between rows (vertical gutters) in mm.
 Default \code{5}.}
 
-\item{...}{Additional arguments passed to \code{ggsave()} (e.g., \code{device}, \code{limitsize}, \code{bg}).}
+\item{...}{Additional arguments passed to \code{ggsave()} (e.g., \code{device},
+\code{limitsize}, \code{bg}).}
 }
 \value{
-Invisibly returns \code{NULL}.
+Invisibly returns \code{filename}.
 }
 \description{
 Saves a \code{ggplot} object to file using dimensions tailored to a specific journal's layout.
 Width is given in columns spanned. Height is given in column units unless
-\code{page = TRUE}. Landscape figures are treated as full-page figures and
-automatically use page-based sizing. Additional \code{ggsave()} parameters
-can be passed via \code{...}.
+\code{page = TRUE}. Landscape figures use standard A4 landscape dimensions (297 x 210 mm),
+with \code{fig_width} and \code{fig_height} as fractions. Additional \code{ggsave()}
+parameters can be passed via \code{...}.
+
+When output paths have been registered with \code{\link{set_paths}}, passing a bare
+filename (such as \code{figR.name}) is sufficient — the figure is saved to every
+registered directory automatically.
 }

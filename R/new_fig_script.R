@@ -16,7 +16,7 @@
 #' create_fig_script("analysis/figures", "retention geometry scaling")
 #' }
 #' @export
-new_fig_script <- function(dir, description, hash_length = 4) {
+new_fig_script <- function(dir, description, hash_length = 2) {
   
   # random 8-char ID
   id <- {
@@ -30,12 +30,23 @@ new_fig_script <- function(dir, description, hash_length = 4) {
   safe_desc <- gsub("^-+|-+$", "", safe_desc)
   
   # file name
-  fname <- paste0("fig-", id, "-", safe_desc, ".R")
+  fname <- paste0("make-fig-", id, "-", safe_desc, ".R")
   outname <- paste0("fig-", id, "-", safe_desc, ".png")
   fpath <- file.path(dir, fname)
   
-  # write file containing just the file name as a string
-  writeLines(paste0("plot_name <- \"", outname, "\""), con = fpath)
+  # write scaffold: name declaration, code section, and publish stub
+  sep <- paste0(rep("\u2500", 76), collapse = "")
+  lines <- c(
+    paste0("figR.name <- \"", outname, "\""),
+    "",
+    paste0("# \u2500\u2500 figure code ", sep),
+    "",
+    "",
+    "",
+    paste0("# ", sep),
+    "publish_fig(<my.plot>, figR.name, fig_width = , fig_height = , draft = TRUE)"
+  )
+  writeLines(lines, con = fpath)
   
   invisible(fpath)
 }
