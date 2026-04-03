@@ -1,0 +1,61 @@
+# figureout
+
+## Overview
+
+**figureout** eliminates the guesswork of figure layout sizing in
+scientific journals. It provides a consistent toolset to ensure your
+`ggplot2` graphics meet journal requirements.
+
+- [`publish_fig()`](https://wikisqueaks.github.io/figureout/reference/publish_fig.md)
+  saves plots with precise dimensions based on column widths.
+- [`search_journals()`](https://wikisqueaks.github.io/figureout/reference/search_journals.md)
+  helps you find specific layout rules (Nature, Cell, Science).
+- [`set_journal()`](https://wikisqueaks.github.io/figureout/reference/set_journal.md)
+  allows you to define a global target for your entire script.
+
+These combine naturally to ensure that what you see in R is exactly what
+appears in the PDF.
+
+## Installation
+
+You can install the development version of figureout from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("wikisqueaks/figureout")
+```
+
+# Package index
+
+## Saving Figures
+
+Core functions for exporting publication-ready plots.
+
+- [`publish_fig()`](https://wikisqueaks.github.io/figureout/reference/publish_fig.md)
+  : Save a Publication-Ready Figure with Journal-Specific Dimensions
+
+## Configuration
+
+Functions to manage session defaults.
+
+- [`set_journal()`](https://wikisqueaks.github.io/figureout/reference/set_journal.md)
+  : Set Default Journal
+- [`search_journals()`](https://wikisqueaks.github.io/figureout/reference/search_journals.md)
+  : Search or List Available Journals
+
+## Other Functionality
+
+- [`new_fig_script()`](https://wikisqueaks.github.io/figureout/reference/new_fig_script.md)
+  : Create a new figure script with a unique ID
+- [`publish_fig()`](https://wikisqueaks.github.io/figureout/reference/publish_fig.md)
+  : Save a Publication-Ready Figure with Journal-Specific Dimensions
+- [`search_journals()`](https://wikisqueaks.github.io/figureout/reference/search_journals.md)
+  : Search or List Available Journals
+- [`set_journal()`](https://wikisqueaks.github.io/figureout/reference/set_journal.md)
+  : Set Default Journal
+- [`set_paths()`](https://wikisqueaks.github.io/figureout/reference/set_paths.md)
+  : Set Default Output Paths for Figures
+- [`show_journals()`](https://wikisqueaks.github.io/figureout/reference/show_journals.md)
+  : List Available Journals
+
