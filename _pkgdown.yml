@@ -1,4 +1,4 @@
-url: https://wikisqueaks.github.io/infigurate/
+url: https://wikisqueaks.github.io/figureout/
 
 template:
   package: tidytemplate   # <--- The engine switch
@@ -8,14 +8,14 @@ template:
 
 # 1. Navbar: Matches dplyr's "Get Started" on the left
 navbar:
-  title: "infigurate"
+  title: "figureout"
   structure:
     left:  [intro, reference, articles, news]
     right: [search, github]
   components:
     intro:
       text: "Get started"
-      href: articles/infigurate.html  # Assumes you have vignettes/infigurate.Rmd
+      href: articles/figureout.html  # Assumes you have vignettes/figureout.Rmd
     articles:
       text: "Articles"
       menu:

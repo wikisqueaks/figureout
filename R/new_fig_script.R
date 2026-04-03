@@ -37,14 +37,14 @@ new_fig_script <- function(dir, description, hash_length = 2) {
   # write scaffold: name declaration, code section, and publish stub
   sep <- paste0(rep("\u2500", 76), collapse = "")
   lines <- c(
-    paste0("infigurate.name <- \"", outname, "\""),
+    paste0("figureout.name <- \"", outname, "\""),
     "",
     paste0("# \u2500\u2500 figure code ", sep),
     "",
     "",
     "",
     paste0("# ", sep),
-    "publish_fig(<my.plot>, infigurate.name, fig_width = , fig_height = , draft = TRUE)"
+    "publish_fig(<my.plot>, figureout.name, fig_width = , fig_height = , draft = TRUE)"
   )
   writeLines(lines, con = fpath)
   

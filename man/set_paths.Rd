@@ -18,11 +18,11 @@ Invisibly returns the registered paths.
 \description{
 Registers one or more output directories that \code{publish_fig()} will
 automatically save to. When paths are registered, passing a bare filename
-(i.e. \code{infigurate.name}) to \code{publish_fig()} will save the figure to
+(i.e. \code{figureout.name}) to \code{publish_fig()} will save the figure to
 every registered directory, eliminating the need for manual path construction.
 }
 \details{
-Paths are stored in the R option \code{infigurate_paths} for the duration of the
+Paths are stored in the R option \code{figureout_paths} for the duration of the
 session. Call \code{set_paths()} with no arguments to clear all registered
 paths.
 }

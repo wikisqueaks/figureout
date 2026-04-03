@@ -8,11 +8,11 @@
 #' parameters can be passed via \code{...}.
 #'
 #' When output paths have been registered with \code{\link{set_paths}}, passing a bare
-#' filename (such as \code{infigurate.name}) is sufficient — the figure is saved to every
+#' filename (such as \code{figureout.name}) is sufficient — the figure is saved to every
 #' registered directory automatically.
 #'
 #' @param plot A \code{ggplot} object to save.
-#' @param filename Character. A bare filename (e.g. \code{infigurate.name}) or a vector of full
+#' @param filename Character. A bare filename (e.g. \code{figureout.name}) or a vector of full
 #'   paths. When paths are registered via \code{\link{set_paths}}, the basename of each
 #'   entry is expanded across all registered directories.
 #' @param fig_width Integer. Number of columns spanned (portrait/page modes), or fraction
@@ -50,7 +50,7 @@ publish_fig <- function(plot,
                         filename,
                         fig_width,
                         fig_height,
-                        journal = getOption("infigurate_journal", "nature"),
+                        journal = getOption("figureout_journal", "nature"),
                         page = FALSE,
                         landscape = FALSE,
                         draft = FALSE,
@@ -111,7 +111,7 @@ publish_fig <- function(plot,
   }
 
   # 5. Resolve filenames against registered paths (if any)
-  fig_paths <- getOption("infigurate_paths")
+  fig_paths <- getOption("figureout_paths")
   if (!is.null(fig_paths)) {
     filename <- as.vector(outer(fig_paths, basename(filename), file.path))
   }

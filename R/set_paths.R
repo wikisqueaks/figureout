@@ -2,7 +2,7 @@
 #'
 #' Registers one or more output directories that \code{publish_fig()} will
 #' automatically save to. When paths are registered, passing a bare filename
-#' (i.e. \code{infigurate.name}) to \code{publish_fig()} will save the figure to
+#' (i.e. \code{figureout.name}) to \code{publish_fig()} will save the figure to
 #' every registered directory, eliminating the need for manual path construction.
 #'
 #' @param ... Character. One or more directory paths.
@@ -10,7 +10,7 @@
 #'   already exist. Default \code{FALSE}.
 #'
 #' @details
-#' Paths are stored in the R option \code{infigurate_paths} for the duration of the
+#' Paths are stored in the R option \code{figureout_paths} for the duration of the
 #' session. Call \code{set_paths()} with no arguments to clear all registered
 #' paths.
 #'
@@ -29,8 +29,8 @@ set_paths <- function(..., create = FALSE) {
 
   # Called with no arguments: clear registered paths
   if (is.null(paths) || length(paths) == 0) {
-    options(infigurate_paths = NULL)
-    message("infigurate output paths cleared.")
+    options(figureout_paths = NULL)
+    message("figureout output paths cleared.")
     return(invisible(NULL))
   }
 
@@ -48,7 +48,7 @@ set_paths <- function(..., create = FALSE) {
     )
   }
 
-  options(infigurate_paths = paths)
-  message("infigurate output paths set to:\n", paste0("  - ", paths, collapse = "\n"))
+  options(figureout_paths = paths)
+  message("figureout output paths set to:\n", paste0("  - ", paths, collapse = "\n"))
   invisible(paths)
 }

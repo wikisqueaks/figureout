@@ -16,6 +16,6 @@ set_journal <- function(journal) {
   }
   
   # Set the standard R option
-  options(infigurate_journal = journal)
+  options(figureout_journal = journal)
   message("Global journal set to: ", journal)
 }

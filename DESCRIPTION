@@ -1,4 +1,4 @@
-Package: infigurate
+Package: figureout
 Title: Figure Publishing for Scientific Manuscripts
 Version: 0.0.0.9000
 Authors@R: 
@@ -9,8 +9,8 @@ Authors@R:
       role = c("aut", "cre"),
       comment = c(ORCID = "0009-0007-3849-1078"))
 Description: Assists in setting figures to standard dimensions for scientific manuscripts.
-URL: https://wikisqueaks.github.io/infigurate
-BugReports: https://github.com/wikisqueaks/infigurate/issues
+URL: https://wikisqueaks.github.io/figureout
+BugReports: https://github.com/wikisqueaks/figureout/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
