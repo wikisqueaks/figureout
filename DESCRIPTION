@@ -17,6 +17,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports:
     ggplot2,
-    purrr
+    purrr,
+    rstudioapi
 Depends: 
     R (>= 3.5)
